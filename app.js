@@ -11,6 +11,7 @@ const adminController = require("./src/controllers/admin.Controller")
 const { body } = require("express-validator")
 app.use(express.json())
 
+const port = process.env.PORT || 7070;
 
 app.use("/login",
     login)
@@ -30,8 +31,8 @@ app.use("/data", entityController)
 app.use("/admin", adminController)
 
 
-app.listen(7070, async () => {
+app.listen(port, async () => {
     await connect()
-    console.log("listening on port 7070")
+    console.log(`listening on port ${port}`)
 })
 
